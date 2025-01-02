@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FlightServiceClient_991690389.Models.Flight>
+
+@{
+    ViewData["Title"] = "Flights";
+}
+
+<h1>Flights</h1>
+
+<p>
+    <a asp-action="AddFlight">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

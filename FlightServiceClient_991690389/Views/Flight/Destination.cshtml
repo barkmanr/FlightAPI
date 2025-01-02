@@ -1,0 +1,42 @@
+﻿@model FlightServiceClient_991690389.Models.SearchView<string>
+
+@{
+    ViewData["Title"] = "Destination";
+}
+
+<h1>Destination</h1>
+
+@using (Html.BeginForm("Destination", "Flight", FormMethod.Post))
+{
+    @Html.Label("Enter Destination")
+    @Html.TextBoxFor(f => f.Search)
+}
+
+@if (Model != null && Model.flights != null && Model.flights.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.flights[0].Destination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.flights[0].Cost)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.flights)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
